@@ -22,11 +22,12 @@ $(document).ready(function () {
                 dataType: "html",
                 success: function () {
                     $("#Texto").val("");
+                    $("#Subir").attr("disabled","true");
+                    $("#indicador").html("Te quedan 140 de 140 caracteres");
                 },
                 error: function () { 
                     alert("No se pudieron subir los datos");
                 }
-                
             });
         } 
         else{
