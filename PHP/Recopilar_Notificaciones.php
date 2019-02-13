@@ -1,6 +1,6 @@
 <?php
     function conectar(){
-        $conexion = mysqli_connect('127.0.0.1','root',NULL,'notificaciones');
+        $conexion = mysqli_connect('mysql_db','root','qrr0','notificaciones');
         if(!$conexion){
             echo "Error de depuración: ".mysqli_connect_error()." ".mysqli_connect_errno();
         }
