@@ -48,8 +48,8 @@ Conectamos el contenedor de PHP con el de MYSQL para que el programa encuentre e
 
 Como las funciones y métodos de MySQLi no son propios de PHP, sino que son extensiones, tedremos que instalarlas:
 ```bash
-docker exec -ti php docker-php-ext-install
-docker exec -ti mysqli docker-php-ext-enable mysqli
+docker exec -ti php docker-php-ext-install mysqli
+docker exec -ti php docker-php-ext-enable mysqli
 docker restart php
 ```
 
