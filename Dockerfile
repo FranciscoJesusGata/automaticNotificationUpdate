@@ -1,5 +1,2 @@
-FROM mysql:5.7
-EXPOSE 3306
-ENV MYSQL_ROOT_PASSWORD qrr0
-ENV MYSQL_DATABASE notificaciones
-COPY ./code/CreateTable.sql /docker-entrypoint-initdb.d/
+FROM php:7-fpm
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli

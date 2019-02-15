@@ -26,7 +26,13 @@ services:
     volumes:
       - /home/centos/automaticNotificationUpdate/code:/app
   db:
-   build: .
+   image: mysql:5.7
    container_name: db
    ports:
       - "3306"
+   environment:
+      - MYSQL_ROOT_PASSWORD=qrr0
+      - MYSQL_DATABASE=notificaciones
+   volumes:
+      - /home/centos/automaticNotificationUpdate/code/SQL/:/docker-entrypoint-initdb.d/
+      - /mysql_dbs:/var/lib/mysql
