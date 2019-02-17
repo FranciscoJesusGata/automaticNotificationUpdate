@@ -1,0 +1,59 @@
+body{
+    font-family: 'PT Sans', sans-serif;
+}
+#contenido{
+    display: block;
+    position: absolute;
+    border-radius: 10px;
+    background-color: #b191ff;
+    width: 98%;
+    height: 98%;
+    margin-bottom: 50px;
+}
+#cabecera{
+    border-bottom: 1px solid black;
+    width: 98%;
+    margin-left: 10px;
+}
+#cabecera h3{
+    margin-left: 20px;
+}
+h1 {
+    text-align: center;
+}
+.publicacion{
+    margin: 10px 0px 10px 0px;
+    border: 1px solid black;
+    padding: 20px;
+}
+.texto{
+    position: absolute;
+    display: block;
+    background-color: white;
+    width: 80%;
+    left: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.texto::before{
+    content: "";
+    position: absolute;
+    margin: 0px;
+    width: 0px;
+    height: 0px;
+    left: 10px;
+    margin-left: -8px;
+    margin-top: -8px;
+    top: 0px;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid white;
+
+}
+.fecha{
+    position: relative;
+    margin-top: 30px;
+    margin-left: 30px;
+    text-align: left;
+}

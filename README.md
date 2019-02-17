@@ -3,7 +3,7 @@ Aplicación web que sirve para recibir notificaciones actualizadas cada x tiempo
 ### Dockerizar app
 #### Dockerizar por comandos
 
-Imagenes necesarias [`nginx:latest`](https://hub.docker.com/_/nginx), [`php:latest`](https://hub.docker.com/_/php) y [`mysql:5.7`](https://hub.docker.com/_/mysql) (Utilizo la versión 5.7  porque con el `mysqli_connect()` no está actualizado para la última versión.
+Imagenes necesarias [`nginx:latest`](https://hub.docker.com/_/nginx), [`php:7-fpm`](https://hub.docker.com/_/php) y [`mysql:5.7`](https://hub.docker.com/_/mysql) (Utilizo la versión 5.7  porque con el `mysqli_connect()` no está actualizado para la última versión.
 
 Primero habrá que crear la base de datos a la que se conectará nuestra app:
 ```bash
@@ -75,7 +75,7 @@ server {
         root   /app/HTML;
     }
     # redirect server error pages to the static page /50x.html
-    #
+
     error_page   500 502 503 504  /50x.html;
     location = /50x.html {
         root   /usr/share/nginx/html;
@@ -92,3 +92,13 @@ server {
 }
 ```
 Una vez levantados los contenedores entramos en Firefox con la dirección http://127.0.0.1 o [127.0.0.1:8080](127.0.0.1:8080)
+
+#### Dockerizar con Compose
+
+Creamos el documento `docker-compose.yml` y establecemos los servicios
+
+**Servicio web y php**
+
+Lo primero es crear un servicio web que se levante partiendo de NGINX. Mapeamos el puerto 80 con el 8080 y lo linkeamos a los contenedores PHP y MySQL.
+
+Como no puede funcionar sin estar levantados los otros dos servicios le indicamos a Docker que nuestro servicio depende de los otros dos con `depends_on`, que hará que no se levante el contenedor si antes no se han levantados los contenedores de los que depende.

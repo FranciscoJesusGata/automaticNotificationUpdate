@@ -2,10 +2,10 @@ $(document).ready(function () {
 
     function imprimirDatos(datos) { 
         for(var i = 0; i < datos.length; i++){
-            var html = "<div id='p"+datos[i][0]+"' class='publicacion' style='width: 100%'>";
-            html+= datos[i]["text"];
-            html+="<div id='fecha"+i+"' class='fecha' style='float: right'>"+datos[i][2]+"</div>";
-            html+="</div> <br/>";
+            var html = "<div id='p"+datos[i][0]+"' class='publicacion'>";
+            html += "<div class='texto'>"+datos[i][1]+"</div><br><br>"
+            html += "<div id='fecha"+i+"' class='fecha'>"+datos[i][3]+"</div>";
+            html += "</div><br>"
             $("#contenido").prepend(html);
         };
     }
