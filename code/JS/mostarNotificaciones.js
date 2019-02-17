@@ -4,7 +4,7 @@ $(document).ready(function () {
         for(var i = 0; i < datos.length; i++){
             var html = "<div id='p"+datos[i][0]+"' class='publicacion'>";
             html += "<div class='texto'>"+datos[i][1]+"</div><br><br>"
-            html += "<div id='fecha"+i+"' class='fecha'>"+datos[i][3]+"</div>";
+            html += "<div id='fecha"+i+"' class='fecha'>"+datos[i][2]+"</div>";
             html += "</div><br>"
             $("#publicaciones").prepend(html);
         };

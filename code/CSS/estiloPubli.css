@@ -22,9 +22,10 @@ h1 {
     text-align: center;
 }
 .publicacion{
-    margin: 0px;
+    margin-left: 10px;
     border-bottom: 1px solid black;
     padding: 20px;
+    width: 94%;
 }
 .texto{
     position: absolute;
@@ -55,4 +56,9 @@ h1 {
     margin-top: 30px;
     margin-left: 30px;
     text-align: left;
+}
+#pie{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
 }
