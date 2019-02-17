@@ -6,7 +6,7 @@ $(document).ready(function () {
             html += "<div class='texto'>"+datos[i][1]+"</div><br><br>"
             html += "<div id='fecha"+i+"' class='fecha'>"+datos[i][3]+"</div>";
             html += "</div><br>"
-            $("#contenido").prepend(html);
+            $("#publicaciones").prepend(html);
         };
     }
     function primeraLlamada(){
