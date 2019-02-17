@@ -3,11 +3,12 @@ body{
 }
 #contenido{
     display: flex;
-    position: absolute;
+    flex-direction: column;
     border-radius: 10px;
     background-color: #b191ff;
     width: 98%;
-    height: 98%;
+    height: auto;
+    min-height: 300px;
     margin-bottom: 50px;
 }
 #cabecera{
@@ -22,6 +23,7 @@ h1 {
     text-align: center;
 }
 .publicacion{
+    position: relative;
     margin-left: 10px;
     border-bottom: 1px solid black;
     padding: 20px;
@@ -58,7 +60,11 @@ h1 {
     text-align: left;
 }
 #pie{
-    position: absolute;
+    display: block;
+    background-color: #ddfff7;
+    padding: 10px;
+    border-radius: 5px;
+    position: fixed;
     bottom: 10px;
-    left: 10px;
+    right: 10px;
 }
