@@ -3,7 +3,7 @@ $(document).ready(function () {
     function imprimirDatos(datos) { 
         for(var i = 0; i < datos.length; i++){
             var html = "<div id='p"+datos[i][0]+"' class='publicacion'>";
-            html += "<div class='texto'>"+datos[i][1]+"</div><br><br>"
+            html += "<div class='texto'><pre>"+datos[i][1]+"</pre></div><br><br>"
             html += "<div id='fecha"+i+"' class='fecha'>"+datos[i][2]+"</div>";
             html += "</div><br>"
             $("#publicaciones").prepend(html);
