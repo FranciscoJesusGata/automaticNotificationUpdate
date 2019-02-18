@@ -1,12 +1,15 @@
 body{
     font-family: 'PT Sans', sans-serif;
+    margin: 0px;
 }
 #contenido{
+    margin-left: 5px;
+    margin-right: 5px;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
     background-color: #b191ff;
-    width: 98%;
+    width: auto;
     height: auto;
     margin-bottom: 50px;
 }
@@ -29,7 +32,7 @@ h1 {
     margin-left: 10px;
     border-bottom: 1px solid black;
     padding: 20px;
-    width: 93%;
+    width: 95%;
     min-height: 100px;
 }
 .publicacion:last-child{
@@ -81,4 +84,14 @@ h1 {
     position: fixed;
     bottom: 10px;
     right: 10px;
+}
+#navbar{
+    color: white;
+    background-color: black;
+    position: sticky;
+    margin: 0px 0px 20px 0px;
+    padding: 5px;
+}
+#navbar h1{
+    margin: 0px;
 }
