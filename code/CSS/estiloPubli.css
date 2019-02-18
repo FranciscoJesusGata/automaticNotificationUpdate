@@ -8,7 +8,6 @@ body{
     background-color: #b191ff;
     width: 98%;
     height: auto;
-    /*min-height: 370px;*/
     margin-bottom: 50px;
 }
 #cabecera{
@@ -24,12 +23,14 @@ h1 {
 }
 .publicacion{
     display: flex;
+    position: static;
     flex-direction: column;
     justify-content: flex-start;
     margin-left: 10px;
     border-bottom: 1px solid black;
     padding: 20px;
     width: 93%;
+    min-height: 100px;
 }
 .publicacion:last-child{
     margin-bottom: 30px;
@@ -37,12 +38,13 @@ h1 {
 .texto{
     flex-grow: 1;
     position: relative;
-    display: inline-block;
-    min-width: 10%;
-    max-width: 80%;
     background-color: white;
     border-radius: 5px;
     margin-top: 8px;
+    display: inline-block;
+    width: fit-content;
+    min-width: 10%;
+    max-width: 80%;
 }
 .texto pre{
     font-family: 'Open Sans', sans-serif;
@@ -68,6 +70,7 @@ h1 {
     position: relative;
     margin-top: 30px;
     text-align: left;
+    bottom: 5px;
 }
 #pie{
     display: block;
