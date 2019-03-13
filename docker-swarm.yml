@@ -1,0 +1,44 @@
+version: '3'
+networks:
+  frontend:
+    driver: overlay
+  backend:
+    driver: overlay
+services:
+  web:
+    image: mywebapp:latest
+    ports:
+      - "8080:80"
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - db
+      - php
+    volumes:
+      - code:/app
+  php:
+    image: php_mysqli:latest
+    networks:
+      - backend
+    ports:
+      - "9000:9000"
+    depends_on:
+      - db
+    volumes:
+      - code:/app
+  mysql_db:
+    image: mysql:5.7
+    networks:
+      - backend
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=qrr0
+      - MYSQL_DATABASE=notificaciones
+    volumes:
+      - /home/centos/automaticNotificationUpdate/code/SQL/:/docker-entrypoint-initdb.d/
+      - databases:/var/lib/mysql
+volumes:
+  code:
+  databases:

@@ -16,8 +16,8 @@ services:
       - /home/centos/automaticNotificationUpdate/app.conf:/etc/nginx/conf.d/app.conf
   php:
     build:
-      context: .
-      dockerfile: Dockerfile_php
+      context: ./php/
+      dockerfile: Dockerfile
     container_name: php
     links:
       - db:mysql_db
