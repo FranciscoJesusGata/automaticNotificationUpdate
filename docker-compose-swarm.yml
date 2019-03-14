@@ -19,7 +19,7 @@ services:
       - code:/app
     deploy:
       placement:
-        constraints: [node.hostname == formacion-madrid-nodo-aux-1]
+        constraints: [node.hostname == (Node hostname here)]
   php:
     image: franciscojesusgata/php-mysqli:7-fpm
     networks:
@@ -32,7 +32,7 @@ services:
       - code:/app
     deploy:
       placement:
-        constraints: [node.hostname ==formacion-madrid-nodo-aux-1]
+        constraints: [node.hostname == (Node hostname here)]
   mysql_db:
     image: mysql:5.7
     networks:
