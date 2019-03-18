@@ -1,0 +1,50 @@
+version: '3'
+networks:
+  frontend:
+    driver: overlay
+  backend:
+    driver: overlay
+services:
+  web:
+    image: franciscojesusgata/automaticupdate:latest
+    ports:
+      - "8080:80"
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - db
+      - php
+    volumes:
+      - code:/app
+    deploy:
+      mode: replicated
+      replicas: 2
+  php:
+    image: franciscojesusgata/php-mysqli:7-fpm
+    networks:
+      - backend
+    ports:
+      - "9000:9000"
+    depends_on:
+      - db
+    volumes:
+      - code:/app
+    deploy:
+      mode: replicated
+      replicas: 2
+  mysql_db:
+    image: mysql:5.7
+    networks:
+      - backend
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=qrr0
+      - MYSQL_DATABASE=notificaciones
+    volumes:
+      - /home/centos/automaticNotificationUpdate/code/SQL/:/docker-entrypoint-initdb.d/
+      - databases:/var/lib/mysql
+volumes:
+  code:
+  databases:
