@@ -1,10 +1,10 @@
 version: '3'
 services:
   web:
-    image: nginx:latest
+    build: .
     container_name: web
     ports:
-      - "8080:80"
+      - "80:80"
     links:
       - php
       - db:mysql_db
@@ -12,8 +12,7 @@ services:
       - db
       - php
     volumes:
-      - /home/centos/automaticNotificationUpdate/code:/app
-      - /home/centos/automaticNotificationUpdate/app.conf:/etc/nginx/conf.d/app.conf
+      - ./code:/app
   php:
     build:
       context: ./php/
@@ -24,7 +23,7 @@ services:
     depends_on:
       - db
     volumes:
-      - /home/centos/automaticNotificationUpdate/code:/app
+      - ./code:/app
   db:
    image: mysql:5.7
    container_name: db
@@ -34,5 +33,5 @@ services:
       - MYSQL_ROOT_PASSWORD=qrr0
       - MYSQL_DATABASE=notificaciones
    volumes:
-      - /home/centos/automaticNotificationUpdate/code/SQL/:/docker-entrypoint-initdb.d/
-      - /mysql_dbs:/var/lib/mysql
+      - ./code/SQL/:/docker-entrypoint-initdb.d/
+      - ./mysql_dbs:/var/lib/mysql
